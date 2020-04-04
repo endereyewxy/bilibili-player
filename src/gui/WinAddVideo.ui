@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+    <class>WinAddVideo</class>
+    <widget class="QDialog" name="WinAddVideo">
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>1076</width>
+                <height>685</height>
+            </rect>
+        </property>
+        <property name="windowTitle">
+            <string>Add Video</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+                <widget class="QLineEdit" name="lineSearch"/>
+            </item>
+            <item>
+                <widget class="QSplitter" name="splitter">
+                    <property name="sizePolicy">
+                        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                    </property>
+                    <widget class="QListWidget" name="listVideos">
+                        <property name="iconSize">
+                            <size>
+                                <width>160</width>
+                                <height>100</height>
+                            </size>
+                        </property>
+                        <property name="verticalScrollMode">
+                            <enum>QAbstractItemView::ScrollPerPixel</enum>
+                        </property>
+                        <property name="horizontalScrollMode">
+                            <enum>QAbstractItemView::ScrollPerPixel</enum>
+                        </property>
+                    </widget>
+                    <widget class="QListWidget" name="listClips">
+                        <property name="verticalScrollMode">
+                            <enum>QAbstractItemView::ScrollPerPixel</enum>
+                        </property>
+                        <property name="horizontalScrollMode">
+                            <enum>QAbstractItemView::ScrollPerPixel</enum>
+                        </property>
+                    </widget>
+                </widget>
+            </item>
+            <item>
+                <layout class="QHBoxLayout" name="layoutButtons">
+                    <item>
+                        <widget class="QPushButton" name="btnNew">
+                            <property name="text">
+                                <string>New</string>
+                            </property>
+                        </widget>
+                    </item>
+                    <item>
+                        <widget class="QDialogButtonBox" name="buttonBox">
+                            <property name="orientation">
+                                <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="standardButtons">
+                                <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+                            </property>
+                        </widget>
+                    </item>
+                </layout>
+            </item>
+        </layout>
+    </widget>
+    <resources/>
+    <connections>
+        <connection>
+            <sender>buttonBox</sender>
+            <signal>accepted()</signal>
+            <receiver>WinAddVideo</receiver>
+            <slot>accept()</slot>
+            <hints>
+                <hint type="sourcelabel">
+                    <x>248</x>
+                    <y>254</y>
+                </hint>
+                <hint type="destinationlabel">
+                    <x>157</x>
+                    <y>274</y>
+                </hint>
+            </hints>
+        </connection>
+        <connection>
+            <sender>buttonBox</sender>
+            <signal>rejected()</signal>
+            <receiver>WinAddVideo</receiver>
+            <slot>reject()</slot>
+            <hints>
+                <hint type="sourcelabel">
+                    <x>316</x>
+                    <y>260</y>
+                </hint>
+                <hint type="destinationlabel">
+                    <x>286</x>
+                    <y>274</y>
+                </hint>
+            </hints>
+        </connection>
+    </connections>
+</ui>
