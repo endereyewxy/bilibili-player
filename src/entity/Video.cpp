@@ -11,6 +11,7 @@
 
 #include "util/Config.h"
 #include "util/Network.h"
+#include "util/Log.h"
 
 QDir Video::m_library; // NOLINT(cert-err58-cpp)
 QMap<QString, Video *> Video::m_loaded;
@@ -39,6 +40,7 @@ Video *Video::openLibrary(const QString &bvid) {
 }
 
 Video *Video::openNetwork(const QString &bvid) {
+    Log::info(Log::Video, "Loading " + bvid + " from Internet");
     auto video = new Video;
     video->load_network_content_(bvid, true);
     m_loaded.insert(bvid, video);
@@ -47,6 +49,7 @@ Video *Video::openNetwork(const QString &bvid) {
 
 Video *Video::openExisted(const QString &bvid) {
     Q_ASSERT(m_library.exists(bvid));
+    Log::info(Log::Video, "Loading local file " + bvid);
     QSettings data(m_library.filePath(bvid), QSettings::IniFormat);
     auto *video = new Video;
     video->m_info = {
@@ -79,10 +82,12 @@ QString Video::videoFile(int page) const noexcept {
 }
 
 void Video::update() {
+    Log::info(Log::Video, "Updating " + m_info.bvid);
     load_network_content_(m_info.bvid, false);
 }
 
 void Video::download() {
+    Log::info(Log::Video, "Downloading all clips of " + m_info.bvid);
     for (int i = 0, size = m_info.clips.size(); i < size; i++) {
         auto url = URL_PLAY.arg(m_info.bvid).arg(m_info.clips[i].cvid);
         Network::getJson(url, [=](const QJsonValue &resp) {
@@ -96,6 +101,7 @@ void Video::download() {
 }
 
 void Video::save() const {
+    Log::info(Log::Video, "Saving " + m_info.bvid);
     QSettings data(m_library.filePath(m_info.bvid), QSettings::IniFormat);
     data.setValue("bvid", m_info.bvid);
     data.setValue("name", m_info.name);

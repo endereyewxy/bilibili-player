@@ -33,7 +33,6 @@ public:
 
     static const QMap<QString, Video *> &currentLoaded();
 
-
     static Video *openLibrary(const QString &bvid);
     static Video *openNetwork(const QString &bvid);
     static Video *openExisted(const QString &bvid);

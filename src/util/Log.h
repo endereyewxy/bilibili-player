@@ -9,7 +9,7 @@
 #include <QtCore/QLinkedList>
 
 class Log : public QObject {
-Q_OBJECT
+    Q_OBJECT
 
 public:
     enum Level {
@@ -22,27 +22,23 @@ public:
         API,
         Network,
         File,
-        Settings
+        Settings,
+        Video,
+        Playlist
     };
 
     static Log &instance() noexcept;
 
     static void log(Level level, Cause cause, const QString &msg) noexcept;
-
     static void info(Cause cause, const QString &msg) noexcept;
-
     static void warn(Cause cause, const QString &msg) noexcept;
-
     static void error(Cause cause, const QString &msg) noexcept;
-
     static void fatal(Cause cause, const QString &msg) noexcept;
 
     static QString level(Level level) noexcept;
-
     static QString cause(Cause cause) noexcept;
 
 signals:
-
     void newLog(const QDateTime &time, Level level, Cause cause, const QString &msg);
 
 private:

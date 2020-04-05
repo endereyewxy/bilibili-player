@@ -6,7 +6,10 @@
 
 #include <QtCore/QSettings>
 
+#include "util/Log.h"
+
 Playlist::Playlist(QObject *parent, const QString &file): QObject(parent) {
+    Log::info(Log::Playlist, "Opening file " + file);
     m_file = file;
     QSettings data(file, QSettings::IniFormat);
     m_info = {
@@ -47,6 +50,8 @@ void Playlist::setInfo(const Playlist::Info &info) noexcept {
 }
 
 void Playlist::add(Video *video, int page) {
+    Log::info(Log::Playlist,
+            "Adding " + video->info().bvid + "/" + QString::number(page) + " to " + m_info.name);
     m_videos.append({ video, page });
 }
 
@@ -62,10 +67,14 @@ void Playlist::moveDown(int index) {
 
 void Playlist::remove(int index) {
     Q_ASSERT(0 <= index && index < m_videos.size());
+    auto &clip = m_videos[index];
+    Log::info(Log::Playlist,
+            "Removing " + clip.video->info().bvid + QString::number(clip.page) +" from " + m_info.name);
     m_videos.removeAt(index);
 }
 
 void Playlist::save() const {
+    Log::info(Log::Playlist, "Saving to " + m_file);
     QSettings data(m_file, QSettings::IniFormat);
     data.setValue("name", m_info.name);
     data.setValue("desc", m_info.desc);

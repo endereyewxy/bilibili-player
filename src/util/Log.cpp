@@ -60,6 +60,10 @@ QString Log::cause(Log::Cause cause) noexcept {
             return "File";
         case Settings:
             return "Settings";
+        case Video:
+            return "Video";
+        case Playlist:
+            return "Playlist";
     }
     Q_ASSERT(false);
 }
