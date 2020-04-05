@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'WinSettingsscxyIR.ui'
+** Form generated from reading UI file 'WinSettingsqLaBVi.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.14.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef WINSETTINGSSCXYIR_H
-#define WINSETTINGSSCXYIR_H
+#ifndef WINSETTINGSQLABVI_H
+#define WINSETTINGSQLABVI_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -15,8 +15,10 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QFormLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
 
@@ -26,14 +28,16 @@ public:
     QFormLayout *formLayout;
     QCheckBox *checkAutomaticFullscreen;
     QCheckBox *checkDownloadWhenCreated;
-    QDialogButtonBox *buttonBox;
+    QLabel *labelUserAgent;
+    QLineEdit *lineUserAgent;
     QLabel *labelSession;
     QLineEdit *lineSession;
     QLabel *labelLibrary;
+    QHBoxLayout *layoutLibrary;
     QLineEdit *lineLibrary;
-    QLabel *labelUserAgent;
-    QLineEdit *lineUserAgent;
+    QPushButton *btnLibrary;
     QLabel *label;
+    QDialogButtonBox *buttonBox;
 
     void setupUi(QDialog *WinSettings)
     {
@@ -52,12 +56,15 @@ public:
 
         formLayout->setWidget(1, QFormLayout::SpanningRole, checkDownloadWhenCreated);
 
-        buttonBox = new QDialogButtonBox(WinSettings);
-        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
-        buttonBox->setOrientation(Qt::Horizontal);
-        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+        labelUserAgent = new QLabel(WinSettings);
+        labelUserAgent->setObjectName(QString::fromUtf8("labelUserAgent"));
 
-        formLayout->setWidget(6, QFormLayout::SpanningRole, buttonBox);
+        formLayout->setWidget(2, QFormLayout::LabelRole, labelUserAgent);
+
+        lineUserAgent = new QLineEdit(WinSettings);
+        lineUserAgent->setObjectName(QString::fromUtf8("lineUserAgent"));
+
+        formLayout->setWidget(2, QFormLayout::FieldRole, lineUserAgent);
 
         labelSession = new QLabel(WinSettings);
         labelSession->setObjectName(QString::fromUtf8("labelSession"));
@@ -74,26 +81,33 @@ public:
 
         formLayout->setWidget(4, QFormLayout::LabelRole, labelLibrary);
 
+        layoutLibrary = new QHBoxLayout();
+        layoutLibrary->setObjectName(QString::fromUtf8("layoutLibrary"));
         lineLibrary = new QLineEdit(WinSettings);
         lineLibrary->setObjectName(QString::fromUtf8("lineLibrary"));
 
-        formLayout->setWidget(4, QFormLayout::FieldRole, lineLibrary);
+        layoutLibrary->addWidget(lineLibrary);
 
-        labelUserAgent = new QLabel(WinSettings);
-        labelUserAgent->setObjectName(QString::fromUtf8("labelUserAgent"));
+        btnLibrary = new QPushButton(WinSettings);
+        btnLibrary->setObjectName(QString::fromUtf8("btnLibrary"));
 
-        formLayout->setWidget(2, QFormLayout::LabelRole, labelUserAgent);
+        layoutLibrary->addWidget(btnLibrary);
 
-        lineUserAgent = new QLineEdit(WinSettings);
-        lineUserAgent->setObjectName(QString::fromUtf8("lineUserAgent"));
 
-        formLayout->setWidget(2, QFormLayout::FieldRole, lineUserAgent);
+        formLayout->setLayout(4, QFormLayout::FieldRole, layoutLibrary);
 
         label = new QLabel(WinSettings);
         label->setObjectName(QString::fromUtf8("label"));
         label->setAlignment(Qt::AlignCenter);
 
         formLayout->setWidget(5, QFormLayout::SpanningRole, label);
+
+        buttonBox = new QDialogButtonBox(WinSettings);
+        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
+        buttonBox->setOrientation(Qt::Horizontal);
+        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+
+        formLayout->setWidget(6, QFormLayout::SpanningRole, buttonBox);
 
 
         retranslateUi(WinSettings);
@@ -108,9 +122,11 @@ public:
         WinSettings->setWindowTitle(QCoreApplication::translate("WinSettings", "Settings", nullptr));
         checkAutomaticFullscreen->setText(QCoreApplication::translate("WinSettings", "Automatic fullscreen", nullptr));
         checkDownloadWhenCreated->setText(QCoreApplication::translate("WinSettings", "Download videos when they are created", nullptr));
+        labelUserAgent->setText(QCoreApplication::translate("WinSettings", "User agent", nullptr));
         labelSession->setText(QCoreApplication::translate("WinSettings", "Session", nullptr));
         labelLibrary->setText(QCoreApplication::translate("WinSettings", "Video location", nullptr));
-        labelUserAgent->setText(QCoreApplication::translate("WinSettings", "User agent", nullptr));
+        lineLibrary->setText(QString());
+        btnLibrary->setText(QCoreApplication::translate("WinSettings", "...", nullptr));
         label->setText(QCoreApplication::translate("WinSettings", "Some settings require restart to take effect", nullptr));
     } // retranslateUi
 
@@ -122,4 +138,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // WINSETTINGSSCXYIR_H
+#endif // WINSETTINGSQLABVI_H

@@ -5,7 +5,10 @@
 #include "WinSettings.h"
 #include "ui_WinSettings.h"
 
+#include <QtWidgets/QFileDialog>
+
 #include "util/Config.h"
+#include "util/Log.h"
 
 WinSettings::WinSettings(QWidget *parent) : QDialog(parent), ui(new Ui::WinSettings) {
     ui->setupUi(this);
@@ -21,6 +24,15 @@ WinSettings::WinSettings(QWidget *parent) : QDialog(parent), ui(new Ui::WinSetti
         Config::downloadWhenCreated = ui->checkDownloadWhenCreated->isChecked();
         Config::automaticFullscreen = ui->checkAutomaticFullscreen->isChecked();
         Config::save();
+        if (!QDir(Config::library).exists())
+            Log::warn(Log::Settings, tr("Directory %1 does not exist").arg(Config::library));
+    });
+    connect(ui->btnLibrary, &QPushButton::clicked, [=]() {
+        auto dir = QFileDialog::getExistingDirectory(this,
+                tr("Set Video Location"),
+                ui->lineLibrary->text());
+        if (!dir.isEmpty())
+            ui->lineLibrary->setText(dir);
     });
 }
 

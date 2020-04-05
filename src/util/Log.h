@@ -21,7 +21,8 @@ public:
     enum Cause {
         API,
         Network,
-        File
+        File,
+        Settings
     };
 
     static Log &instance() noexcept;

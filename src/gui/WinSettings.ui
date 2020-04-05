@@ -1,118 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
-    <class>WinSettings</class>
-    <widget class="QDialog" name="WinSettings">
-        <property name="geometry">
-            <rect>
-                <x>0</x>
-                <y>0</y>
-                <width>594</width>
-                <height>298</height>
-            </rect>
-        </property>
-        <property name="windowTitle">
-            <string>Settings</string>
-        </property>
-        <layout class="QFormLayout" name="formLayout">
-            <item row="0" column="0" colspan="2">
-                <widget class="QCheckBox" name="checkAutomaticFullscreen">
-                    <property name="text">
-                        <string>Automatic fullscreen</string>
-                    </property>
-                </widget>
-            </item>
-            <item row="1" column="0" colspan="2">
-                <widget class="QCheckBox" name="checkDownloadWhenCreated">
-                    <property name="text">
-                        <string>Download videos when they are created</string>
-                    </property>
-                </widget>
-            </item>
-            <item row="6" column="0" colspan="2">
-                <widget class="QDialogButtonBox" name="buttonBox">
-                    <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="standardButtons">
-                        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-                    </property>
-                </widget>
-            </item>
-            <item row="3" column="0">
-                <widget class="QLabel" name="labelSession">
-                    <property name="text">
-                        <string>Session</string>
-                    </property>
-                </widget>
-            </item>
-            <item row="3" column="1">
-                <widget class="QLineEdit" name="lineSession"/>
-            </item>
-            <item row="4" column="0">
-                <widget class="QLabel" name="labelLibrary">
-                    <property name="text">
-                        <string>Video location</string>
-                    </property>
-                </widget>
-            </item>
-            <item row="4" column="1">
-                <widget class="QLineEdit" name="lineLibrary"/>
-            </item>
-            <item row="2" column="0">
-                <widget class="QLabel" name="labelUserAgent">
-                    <property name="text">
-                        <string>User agent</string>
-                    </property>
-                </widget>
-            </item>
-            <item row="2" column="1">
-                <widget class="QLineEdit" name="lineUserAgent"/>
-            </item>
-            <item row="5" column="0" colspan="2">
-                <widget class="QLabel" name="label">
-                    <property name="text">
-                        <string>Some settings require restart to take effect</string>
-                    </property>
-                    <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                    </property>
-                </widget>
-            </item>
-        </layout>
+ <class>WinSettings</class>
+ <widget class="QDialog" name="WinSettings">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>594</width>
+    <height>298</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Settings</string>
+  </property>
+  <layout class="QFormLayout" name="formLayout">
+   <item row="0" column="0" colspan="2">
+    <widget class="QCheckBox" name="checkAutomaticFullscreen">
+     <property name="text">
+      <string>Automatic fullscreen</string>
+     </property>
     </widget>
-    <resources/>
-    <connections>
-        <connection>
-            <sender>buttonBox</sender>
-            <signal>accepted()</signal>
-            <receiver>WinSettings</receiver>
-            <slot>accept()</slot>
-            <hints>
-                <hint type="sourcelabel">
-                    <x>248</x>
-                    <y>254</y>
-                </hint>
-                <hint type="destinationlabel">
-                    <x>157</x>
-                    <y>274</y>
-                </hint>
-            </hints>
-        </connection>
-        <connection>
-            <sender>buttonBox</sender>
-            <signal>rejected()</signal>
-            <receiver>WinSettings</receiver>
-            <slot>reject()</slot>
-            <hints>
-                <hint type="sourcelabel">
-                    <x>316</x>
-                    <y>260</y>
-                </hint>
-                <hint type="destinationlabel">
-                    <x>286</x>
-                    <y>274</y>
-                </hint>
-            </hints>
-        </connection>
-    </connections>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QCheckBox" name="checkDownloadWhenCreated">
+     <property name="text">
+      <string>Download videos when they are created</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="labelUserAgent">
+     <property name="text">
+      <string>User agent</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QLineEdit" name="lineUserAgent"/>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="labelSession">
+     <property name="text">
+      <string>Session</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QLineEdit" name="lineSession"/>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="labelLibrary">
+     <property name="text">
+      <string>Video location</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <layout class="QHBoxLayout" name="layoutLibrary">
+     <item>
+      <widget class="QLineEdit" name="lineLibrary">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnLibrary">
+       <property name="text">
+        <string>...</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="5" column="0" colspan="2">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Some settings require restart to take effect</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0" colspan="2">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>WinSettings</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>WinSettings</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

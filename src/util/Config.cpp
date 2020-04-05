@@ -4,6 +4,7 @@
 
 #include "Config.h"
 
+#include <QtCore/QDir>
 #include <QtCore/QSettings>
 
 QString Config::userAgent;
@@ -24,6 +25,8 @@ void Config::init() {
     GET_VALUE(defaultPlaylist).toString();
     GET_VALUE(downloadWhenCreated).toBool();
     GET_VALUE(automaticFullscreen).toBool();
+    if (library.isEmpty() || !QDir(library).exists())
+        library = QDir::homePath();
 }
 
 void Config::save() {

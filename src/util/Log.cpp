@@ -58,6 +58,8 @@ QString Log::cause(Log::Cause cause) noexcept {
             return "Network";
         case File:
             return "File";
+        case Settings:
+            return "Settings";
     }
     Q_ASSERT(false);
 }
