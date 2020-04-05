@@ -14,8 +14,9 @@ public:
     static QString session;
     static QString library;
     static QString defaultPlaylist;
-    static bool downloadWhenCreated;
-    static bool automaticFullscreen;
+    static bool    downloadWhenCreated;
+    static bool    automaticFullscreen;
+    static int     volume;
 
     static void init();
 

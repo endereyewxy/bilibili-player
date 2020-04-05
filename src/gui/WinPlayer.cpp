@@ -66,6 +66,7 @@ WinPlayer::WinPlayer(Playlist *playlist, int start)
     });
     m_player->setVideoOutput(m_video);
     m_player->setPlaylist(m_playlist);
+    m_player->setVolume(Config::volume);
     m_playlist->setCurrentIndex(start);
     m_player->play();
 }
@@ -73,6 +74,7 @@ WinPlayer::WinPlayer(Playlist *playlist, int start)
 WinPlayer::~WinPlayer() {
     delete m_player;
     delete m_playlist;
+    Config::save();
 }
 
 void WinPlayer::closeEvent(QCloseEvent *event) {
@@ -99,27 +101,31 @@ void WinPlayer::keyPressEvent(QKeyEvent *event) {
             break;
         case Qt::Key_Left:
             m_player->setPosition(m_player->position() - 5000);
-            m_cursor->show();
-            m_cursorTimer = startTimer(5000);
             break;
         case Qt::Key_Right:
             m_player->setPosition(m_player->position() + 5000);
-            m_cursor->show();
-            m_cursorTimer = startTimer(5000);
             break;
         case Qt::Key_Up:
             m_player->setVolume(m_player->volume() + 5);
-            m_volume->show();
-            m_volumeTimer = startTimer(3000);
             break;
         case Qt::Key_Down:
             m_player->setVolume(m_player->volume() - 5);
+    }
+    switch (event->key()) {
+        case Qt::Key_Left:
+        case Qt::Key_Right:
+        case Qt::Key_P:
+            m_cursor->show();
+            m_cursorTimer = startTimer(3000);
+            break;
+        case Qt::Key_Up:
+        case Qt::Key_Down:
+        case Qt::Key_V:
+            Config::volume = m_player->volume();
             m_volume->show();
             m_volumeTimer = startTimer(3000);
-            break;
-        default:
-            QGraphicsView::keyPressEvent(event);
     }
+    QGraphicsView::keyPressEvent(event);
 }
 
 void WinPlayer::resizeEvent(QResizeEvent *event) {

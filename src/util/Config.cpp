@@ -13,6 +13,7 @@ QString Config::library;
 QString Config::defaultPlaylist;
 bool    Config::downloadWhenCreated;
 bool    Config::automaticFullscreen;
+int     Config::volume;
 
 #define GET_VALUE(key) key = settings.value(# key)
 #define SET_VALUE(key) settings.setValue(# key, key)
@@ -25,6 +26,7 @@ void Config::init() {
     GET_VALUE(defaultPlaylist).toString();
     GET_VALUE(downloadWhenCreated).toBool();
     GET_VALUE(automaticFullscreen).toBool();
+    GET_VALUE(volume).toInt();
     if (library.isEmpty() || !QDir(library).exists())
         library = QDir::homePath();
 }
@@ -37,4 +39,5 @@ void Config::save() {
     SET_VALUE(defaultPlaylist);
     SET_VALUE(downloadWhenCreated);
     SET_VALUE(automaticFullscreen);
+    SET_VALUE(volume);
 }
