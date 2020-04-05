@@ -1,17 +1,18 @@
 /********************************************************************************
-** Form generated from reading UI file 'WinSettingsqLaBVi.ui'
+** Form generated from reading UI file 'WinSettingsefgVWB.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.14.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef WINSETTINGSQLABVI_H
-#define WINSETTINGSQLABVI_H
+#ifndef WINSETTINGSEFGVWB_H
+#define WINSETTINGSEFGVWB_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QFormLayout>
@@ -38,12 +39,14 @@ public:
     QPushButton *btnLibrary;
     QLabel *label;
     QDialogButtonBox *buttonBox;
+    QLabel *labelLanguage;
+    QComboBox *comboLanguage;
 
     void setupUi(QDialog *WinSettings)
     {
         if (WinSettings->objectName().isEmpty())
             WinSettings->setObjectName(QString::fromUtf8("WinSettings"));
-        WinSettings->resize(594, 298);
+        WinSettings->resize(594, 344);
         formLayout = new QFormLayout(WinSettings);
         formLayout->setObjectName(QString::fromUtf8("formLayout"));
         checkAutomaticFullscreen = new QCheckBox(WinSettings);
@@ -100,14 +103,24 @@ public:
         label->setObjectName(QString::fromUtf8("label"));
         label->setAlignment(Qt::AlignCenter);
 
-        formLayout->setWidget(5, QFormLayout::SpanningRole, label);
+        formLayout->setWidget(6, QFormLayout::SpanningRole, label);
 
         buttonBox = new QDialogButtonBox(WinSettings);
         buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
 
-        formLayout->setWidget(6, QFormLayout::SpanningRole, buttonBox);
+        formLayout->setWidget(7, QFormLayout::SpanningRole, buttonBox);
+
+        labelLanguage = new QLabel(WinSettings);
+        labelLanguage->setObjectName(QString::fromUtf8("labelLanguage"));
+
+        formLayout->setWidget(5, QFormLayout::LabelRole, labelLanguage);
+
+        comboLanguage = new QComboBox(WinSettings);
+        comboLanguage->setObjectName(QString::fromUtf8("comboLanguage"));
+
+        formLayout->setWidget(5, QFormLayout::FieldRole, comboLanguage);
 
 
         retranslateUi(WinSettings);
@@ -128,6 +141,7 @@ public:
         lineLibrary->setText(QString());
         btnLibrary->setText(QCoreApplication::translate("WinSettings", "...", nullptr));
         label->setText(QCoreApplication::translate("WinSettings", "Some settings require restart to take effect", nullptr));
+        labelLanguage->setText(QCoreApplication::translate("WinSettings", "Language", nullptr));
     } // retranslateUi
 
 };
@@ -138,4 +152,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // WINSETTINGSQLABVI_H
+#endif // WINSETTINGSEFGVWB_H

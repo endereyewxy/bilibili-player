@@ -13,6 +13,7 @@ public:
     static QString userAgent;
     static QString session;
     static QString library;
+    static QString userTranslation;
     static QString defaultPlaylist;
     static bool    downloadWhenCreated;
     static bool    automaticFullscreen;

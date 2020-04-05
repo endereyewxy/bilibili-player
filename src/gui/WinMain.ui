@@ -1,286 +1,288 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
-    <class>WinMain</class>
-    <widget class="QMainWindow" name="WinMain">
-        <property name="geometry">
-            <rect>
-                <x>0</x>
-                <y>0</y>
-                <width>957</width>
-                <height>665</height>
-            </rect>
-        </property>
-        <property name="windowTitle">
-            <string/>
-        </property>
-        <property name="windowIcon">
-            <iconset resource="../resource.qrc">
-                <normaloff>:/icons/icon.png</normaloff>:/icons/icon.png
-            </iconset>
-        </property>
-        <widget class="QWidget" name="centralwidget">
-            <layout class="QGridLayout" name="gridLayout">
-                <item row="0" column="0">
-                    <widget class="QListWidget" name="playlist">
-                        <property name="iconSize">
-                            <size>
-                                <width>160</width>
-                                <height>100</height>
-                            </size>
-                        </property>
-                        <property name="verticalScrollMode">
-                            <enum>QAbstractItemView::ScrollPerPixel</enum>
-                        </property>
-                        <property name="horizontalScrollMode">
-                            <enum>QAbstractItemView::ScrollPerPixel</enum>
-                        </property>
-                    </widget>
-                </item>
-            </layout>
-        </widget>
-        <widget class="QMenuBar" name="menubar">
-            <property name="geometry">
-                <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>957</width>
-                    <height>35</height>
-                </rect>
-            </property>
-            <widget class="QMenu" name="menuPlayList">
-                <property name="title">
-                    <string>Play List</string>
-                </property>
-                <addaction name="actionOpen"/>
-                <addaction name="actionNew"/>
-                <addaction name="actionSave"/>
-                <addaction name="actionEdit"/>
-                <addaction name="actionAdd"/>
-            </widget>
-            <widget class="QMenu" name="menuView">
-                <property name="title">
-                    <string>View</string>
-                </property>
-                <addaction name="actionLogs"/>
-                <addaction name="actionTasks"/>
-                <addaction name="actionSettings"/>
-                <addaction name="actionAbout"/>
-                <addaction name="actionAboutQt"/>
-            </widget>
-            <widget class="QMenu" name="menuVideo">
-                <property name="title">
-                    <string>Video</string>
-                </property>
-                <addaction name="actionPlay"/>
-                <addaction name="actionInformation"/>
-                <addaction name="actionUpdate"/>
-                <addaction name="actionDownload"/>
-                <addaction name="actionMoveUp"/>
-                <addaction name="actionMoveDown"/>
-                <addaction name="actionRemove"/>
-            </widget>
-            <addaction name="menuPlayList"/>
-            <addaction name="menuVideo"/>
-            <addaction name="menuView"/>
-        </widget>
-        <action name="actionOpen">
-            <property name="text">
-                <string>Open</string>
-            </property>
-            <property name="toolTip">
-                <string>Open a playlist</string>
-            </property>
-            <property name="shortcut">
-                <string>Ctrl+O</string>
-            </property>
-        </action>
-        <action name="actionSave">
-            <property name="text">
-                <string>Save</string>
-            </property>
-            <property name="toolTip">
-                <string>Save all changes</string>
-            </property>
-            <property name="shortcut">
-                <string>Ctrl+S</string>
-            </property>
-        </action>
-        <action name="actionAdd">
-            <property name="text">
-                <string>Add</string>
-            </property>
-            <property name="toolTip">
-                <string>Add a new video</string>
-            </property>
-            <property name="shortcut">
-                <string>Ins</string>
-            </property>
-        </action>
-        <action name="actionLogs">
-            <property name="text">
-                <string>Logs</string>
-            </property>
-            <property name="toolTip">
-                <string>Show logs</string>
-            </property>
-            <property name="shortcut">
-                <string>Ctrl+L</string>
-            </property>
-        </action>
-        <action name="actionTasks">
-            <property name="text">
-                <string>Tasks</string>
-            </property>
-            <property name="toolTip">
-                <string>Show download tasks</string>
-            </property>
-            <property name="shortcut">
-                <string>Ctrl+T</string>
-            </property>
-        </action>
-        <action name="actionDownload">
-            <property name="text">
-                <string>Download</string>
-            </property>
-            <property name="toolTip">
-                <string>Download all clips for current video</string>
-            </property>
-            <property name="shortcut">
-                <string>Ctrl+D</string>
-            </property>
-        </action>
-        <action name="actionUpdate">
-            <property name="text">
-                <string>Update</string>
-            </property>
-            <property name="toolTip">
-                <string>Update current video</string>
-            </property>
-            <property name="shortcut">
-                <string>Ctrl+U</string>
-            </property>
-        </action>
-        <action name="actionInformation">
-            <property name="text">
-                <string>Information</string>
-            </property>
-            <property name="toolTip">
-                <string>View video information</string>
-            </property>
-            <property name="shortcut">
-                <string>Ctrl+I</string>
-            </property>
-        </action>
-        <action name="actionPlay">
-            <property name="text">
-                <string>Play</string>
-            </property>
-            <property name="toolTip">
-                <string>Play current video</string>
-            </property>
-            <property name="shortcut">
-                <string>Ctrl+P</string>
-            </property>
-        </action>
-        <action name="actionRemove">
-            <property name="text">
-                <string>Remove</string>
-            </property>
-            <property name="toolTip">
-                <string>Remove current video</string>
-            </property>
-            <property name="shortcut">
-                <string>Del</string>
-            </property>
-        </action>
-        <action name="actionEdit">
-            <property name="text">
-                <string>Edit</string>
-            </property>
-            <property name="shortcut">
-                <string>Ctrl+E</string>
-            </property>
-        </action>
-        <action name="actionMoveUp">
-            <property name="text">
-                <string>Move Up</string>
-            </property>
-            <property name="toolTip">
-                <string>Move current video up</string>
-            </property>
-            <property name="shortcut">
-                <string>Ctrl+Up</string>
-            </property>
-        </action>
-        <action name="actionMoveDown">
-            <property name="text">
-                <string>Move Down</string>
-            </property>
-            <property name="toolTip">
-                <string>Move current video down</string>
-            </property>
-            <property name="shortcut">
-                <string>Ctrl+Down</string>
-            </property>
-        </action>
-        <action name="actionNew">
-            <property name="text">
-                <string>New</string>
-            </property>
-            <property name="toolTip">
-                <string>Create a new playlist</string>
-            </property>
-            <property name="shortcut">
-                <string>Ctrl+N</string>
-            </property>
-        </action>
-        <action name="actionSettings">
-            <property name="text">
-                <string>Settings</string>
-            </property>
-            <property name="toolTip">
-                <string>Open settings and configurations</string>
-            </property>
-            <property name="shortcut">
-                <string>Ctrl+,</string>
-            </property>
-        </action>
-        <action name="actionAbout">
-            <property name="text">
-                <string>About</string>
-            </property>
-            <property name="toolTip">
-                <string>About this program</string>
-            </property>
-            <property name="shortcut">
-                <string>F1</string>
-            </property>
-        </action>
-        <action name="actionAboutQt">
-            <property name="text">
-                <string>About Qt</string>
-            </property>
-        </action>
-    </widget>
-    <resources>
-        <include location="../resource.qrc"/>
-    </resources>
-    <connections>
-        <connection>
-            <sender>playlist</sender>
-            <signal>doubleClicked(QModelIndex)</signal>
-            <receiver>actionPlay</receiver>
-            <slot>trigger()</slot>
-            <hints>
-                <hint type="sourcelabel">
-                    <x>399</x>
-                    <y>317</y>
-                </hint>
-                <hint type="destinationlabel">
-                    <x>-1</x>
-                    <y>-1</y>
-                </hint>
-            </hints>
-        </connection>
-    </connections>
+ <class>WinMain</class>
+ <widget class="QMainWindow" name="WinMain">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>957</width>
+    <height>664</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string/>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resource.qrc">
+    <normaloff>:/icons/icon.png</normaloff>:/icons/icon.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QListWidget" name="playlist">
+      <property name="iconSize">
+       <size>
+        <width>160</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="verticalScrollMode">
+       <enum>QAbstractItemView::ScrollPerPixel</enum>
+      </property>
+      <property name="horizontalScrollMode">
+       <enum>QAbstractItemView::ScrollPerPixel</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>957</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuPlayList">
+    <property name="title">
+     <string>Play List</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionNew"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionEdit"/>
+    <addaction name="actionAdd"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionLogs"/>
+    <addaction name="actionTasks"/>
+    <addaction name="actionSettings"/>
+    <addaction name="actionAbout"/>
+    <addaction name="actionAboutQt"/>
+   </widget>
+   <widget class="QMenu" name="menuVideo">
+    <property name="title">
+     <string>Video</string>
+    </property>
+    <addaction name="actionPlay"/>
+    <addaction name="actionInformation"/>
+    <addaction name="actionUpdate"/>
+    <addaction name="actionDownload"/>
+    <addaction name="actionMoveUp"/>
+    <addaction name="actionMoveDown"/>
+    <addaction name="actionRemove"/>
+   </widget>
+   <addaction name="menuPlayList"/>
+   <addaction name="menuVideo"/>
+   <addaction name="menuView"/>
+  </widget>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="toolTip">
+    <string>Open a playlist file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="toolTip">
+    <string>Save all changes to disk</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionAdd">
+   <property name="text">
+    <string>Add</string>
+   </property>
+   <property name="toolTip">
+    <string>Add a new video clip</string>
+   </property>
+   <property name="shortcut">
+    <string>Ins</string>
+   </property>
+  </action>
+  <action name="actionLogs">
+   <property name="text">
+    <string>Logs</string>
+   </property>
+   <property name="toolTip">
+    <string>Show all logs</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="actionTasks">
+   <property name="text">
+    <string>Tasks</string>
+   </property>
+   <property name="toolTip">
+    <string>Show all download tasks</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
+  </action>
+  <action name="actionDownload">
+   <property name="text">
+    <string>Download</string>
+   </property>
+   <property name="toolTip">
+    <string>Download all clips for current video</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
+  </action>
+  <action name="actionUpdate">
+   <property name="text">
+    <string>Update</string>
+   </property>
+   <property name="toolTip">
+    <string>Update information of current video</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+U</string>
+   </property>
+  </action>
+  <action name="actionInformation">
+   <property name="text">
+    <string>Information</string>
+   </property>
+   <property name="toolTip">
+    <string>View information of current video</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="actionPlay">
+   <property name="text">
+    <string>Play</string>
+   </property>
+   <property name="toolTip">
+    <string>Play from current video</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actionRemove">
+   <property name="text">
+    <string>Remove</string>
+   </property>
+   <property name="toolTip">
+    <string>Remove current video from playlist</string>
+   </property>
+   <property name="shortcut">
+    <string>Del</string>
+   </property>
+  </action>
+  <action name="actionEdit">
+   <property name="text">
+    <string>Edit</string>
+   </property>
+   <property name="toolTip">
+    <string>Edit playlist information</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actionMoveUp">
+   <property name="text">
+    <string>Move Up</string>
+   </property>
+   <property name="toolTip">
+    <string>Move current video up</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Up</string>
+   </property>
+  </action>
+  <action name="actionMoveDown">
+   <property name="text">
+    <string>Move Down</string>
+   </property>
+   <property name="toolTip">
+    <string>Move current video down</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Down</string>
+   </property>
+  </action>
+  <action name="actionNew">
+   <property name="text">
+    <string>New</string>
+   </property>
+   <property name="toolTip">
+    <string>Create a new playlist</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="text">
+    <string>Settings</string>
+   </property>
+   <property name="toolTip">
+    <string>Open settings dialog</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+,</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+   <property name="toolTip">
+    <string>About this program</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="actionAboutQt">
+   <property name="text">
+    <string>About Qt</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../resource.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>playlist</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>actionPlay</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>399</x>
+     <y>317</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

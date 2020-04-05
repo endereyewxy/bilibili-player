@@ -3,6 +3,7 @@
 //
 
 #include <QApplication>
+#include <QtCore/QTranslator>
 
 #include "gui/WinMain.h"
 #include "util/Config.h"
@@ -17,6 +18,9 @@ int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 
     Config::init();
+    QTranslator translator;
+    if (!Config::userTranslation.isEmpty() && translator.load(Config::userTranslation, ":/lang"))
+        QCoreApplication::installTranslator(&translator);
     Network::init();
     Video::init();
 

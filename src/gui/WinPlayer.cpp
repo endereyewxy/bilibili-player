@@ -110,6 +110,12 @@ void WinPlayer::keyPressEvent(QKeyEvent *event) {
             break;
         case Qt::Key_Down:
             m_player->setVolume(m_player->volume() - 5);
+            break;
+        case Qt::Key_BracketLeft:
+            m_playlist->previous();
+            break;
+        case Qt::Key_BracketRight:
+            m_playlist->next();
     }
     switch (event->key()) {
         case Qt::Key_Left:

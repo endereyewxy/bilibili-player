@@ -139,11 +139,13 @@ WinMain::WinMain()
     connect(ui->actionTasks, &QAction::triggered, m_tasks, &QDialog::open);
     connect(ui->actionSettings, &QAction::triggered, m_settings, &QDialog::open);
     connect(ui->actionAbout, &QAction::triggered, [=]() {
-        QString message = tr("<strong>%1</strong> %2<br/>"
-                             "Developed by %3<br/><br/>"
-                             "Local video manager for videos from "
-                             "<a href=\"https://www.bilibili.com/\">BiliBili</a>.<br/>"
-                             "This program is developed under GNU GPL license.")
+        QString message = tr(
+                "<strong>%1</strong> %2<br/>"
+                "Developed by %3<br/>"
+                "This program is developed under GNU GPL license.<br/><br/>"
+                "This is a video manager of <a href=\"https://www.bilibili.com\">bilibili</a>, "
+                "you can download videos from this website and play them.<br/><br/>"
+                "see <a href=\"https://github.com/endereye/bilibili-player\">github page</a> for more information.")
                 .arg(QCoreApplication::applicationName())
                 .arg(QCoreApplication::applicationVersion())
                 .arg(QCoreApplication::organizationName());
@@ -165,8 +167,8 @@ WinMain::~WinMain() {
 
 void WinMain::closeEvent(QCloseEvent *event) {
     if (!Network::isAllTasksFinished() && QMessageBox::question(this,
-            tr("Confirm"),
-            tr("There are unfinished download tasks.\nAbort these tasks and exit?")) == QMessageBox::No)
+            tr("Exit"),
+            tr("There are unfinished download tasks.\nAbort and exit?")) == QMessageBox::No)
         event->ignore();
     else
         QWidget::closeEvent(event);
